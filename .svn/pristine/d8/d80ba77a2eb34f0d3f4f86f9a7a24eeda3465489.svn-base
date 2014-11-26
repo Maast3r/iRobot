@@ -1,0 +1,216 @@
+'''
+Created on Oct 29, 2013
+
+@author: maas
+'''
+import c0
+import m1
+import m2
+import m3
+import Xbox_And_KeyBoard
+import Follow_Black_Line
+
+import tkinter
+from tkinter import ttk
+import time
+import new_create
+
+class BoxEntries():
+    # Using this class to help change variable values
+    def __init__(self):
+        self.entry_for_port = None
+        self.label_for_port = None
+
+        self.entry_for_speed = None
+        self.label_for_speed = None
+
+        self.entry_for_angle = None
+        self.label_for_angle = None
+
+        self.entry_for_duration = None
+        self.label_for_duration = None
+
+def main():
+    rob = c0.Box_of_Fun_Toys_for_Robots(20, 2, 'sim', 0)
+
+    root = tkinter.Tk()
+    root.title("GUI")
+
+    gui(root, rob)
+
+    root.mainloop()
+
+def gui(root, rob):
+    frame = ttk.Frame(root, padding=100)
+    frame.grid()
+
+    # Menus
+    menu = tkinter.Menu(root)
+    root['menu'] = menu
+
+    '''
+    Connect/Disconnect Menu
+    '''
+    connect_menu = tkinter.Menu(menu, tearoff=0)
+    menu.add_cascade(menu=connect_menu, label='Connect/Disconnect')
+    connect_menu.add_command(label="Connect", command=lambda: m1.connect(rob))
+    connect_menu.add_command(label="Disconnect", command=lambda: m1.disconnect(rob))
+
+    '''
+    Go/Stop/Slow Menu
+    '''
+    go_menu = tkinter.Menu(menu, tearoff=0)
+    menu.add_cascade(menu=go_menu, label='Go/Stop')
+    go_menu.add_command(label='Go', command=lambda: m2.move_forward(rob))
+    go_menu.add_command(label='Stop', command=lambda: m3.stop_please(rob))
+    go_menu.add_command(label='Slow', command=lambda: m3.Slow_move(rob))
+
+    '''
+    Robot Features Menu
+    '''
+    robot_menu = tkinter.Menu(menu, tearoff=0)
+    menu.add_cascade(menu=robot_menu, label='Robot')
+    robot_menu.add_command(label="Go to points", command=lambda: None)
+    robot_menu.add_command(label="Follow Robot", command=lambda: None)
+    robot_menu.add_command(label="Follow Line", command=lambda: Follow_Black_Line.main(rob))
+    robot_menu.add_command(label="Go Until", command=lambda: None)
+    robot_menu.add_command(label="Sing/Dance", command=lambda: None)
+    robot_menu.add_command(label="Something Special", command=lambda: None)
+    robot_menu.add_command(label="IR Signals", command=lambda: None)
+    robot_menu.add_command(label="Xbox Control", command=lambda: Xbox_And_KeyBoard.gui(root, rob))
+
+
+    # Buttons and Entries
+    '''
+    Port Number
+    '''
+    port_frame = ttk.Frame(frame, borderwidth=10, relief='groove')
+    port_frame.grid()
+    port = BoxEntries()
+    port_entry = ttk.Entry(port_frame, width=8)
+    port_entry.grid()
+    BoxEntries.entry_for_port = port_entry
+
+    port_label = ttk.Label(port_frame, text="Enter the port number or 'sim' for simulation")
+    port_label.grid()
+    BoxEntries.label_for_port = port_label
+
+    port_button = ttk.Button(port_frame, text="Set port")
+    port_button.grid()
+    port_button["command"] = lambda: set_port(rob, port)
+
+    '''
+    Speed
+    '''
+    speed_frame = ttk.Frame(frame, borderwidth=10, relief='ridge')
+    speed_frame.grid()
+    speed = BoxEntries()
+    speed_entry = ttk.Entry(speed_frame, width=8)
+    speed_entry.grid()
+    BoxEntries.entry_for_speed = speed_entry
+    print(rob.speed)
+
+    speed_label = ttk.Label(speed_frame, text='Enter a speed in the box.')
+    speed_label.grid()
+    BoxEntries.label_for_speed = speed_label
+
+    speed_button1 = ttk.Button(speed_frame, text='Increase Speed')
+    speed_button1.grid()
+    speed_button1['command'] = lambda: change_speed(rob, 1)
+
+    speed_button2 = ttk.Button(speed_frame, text='Decrease Speed')
+    speed_button2.grid()
+    speed_button2['command'] = lambda: change_speed(rob, -1)
+
+    speed_button3 = ttk.Button(speed_frame, text='Set Speed')
+    speed_button3.grid()
+    speed_button3['command'] = lambda: set_speed(rob, speed)
+
+    '''
+    Angle
+    '''
+    angle_frame = ttk.Frame(frame, borderwidth=10, relief='groove')
+    angle_frame.grid()
+    angle = BoxEntries()
+    angle_entry = ttk.Entry(angle_frame, width=8)
+    angle_entry.grid()
+    BoxEntries.entry_for_angle = angle_entry
+
+    angle_label = ttk.Label(angle_frame, text="Enter an angle in the box between -180 and 180.")
+    angle_label.grid()
+    BoxEntries.label_for_angle = angle_label
+
+    angle_button1 = ttk.Button(angle_frame, text="Increase Angle")
+    angle_button1.grid()
+    angle_button1["command"] = lambda: change_angle(rob, 10)
+
+    angle_button2 = ttk.Button(angle_frame, text="Increase Angle")
+    angle_button2.grid()
+    angle_button2["command"] = lambda: change_angle(rob, -10)
+
+    angle_button3 = ttk.Button(angle_frame, text="Set Angle")
+    angle_button3.grid()
+    angle_button3["command"] = lambda: set_angle(rob, angle)
+
+    '''
+    Duration of Movement
+    '''
+    duration_frame = ttk.Frame(frame, borderwidth=10, relief='ridge')
+    duration_frame.grid()
+    duration = BoxEntries()
+    duration_entry = ttk.Entry(duration_frame, width=8)
+    duration_entry.grid()
+    BoxEntries.entry_for_duration = duration_entry
+
+    duration_label = ttk.Label(duration_frame, text="Enter the amount of time in seconds you would like to robot to move.")
+    duration_label.grid()
+    BoxEntries.label_for_duration = duration_label
+
+    duration_button1 = ttk.Button(duration_frame, text="Increase Duration")
+    duration_button1.grid()
+    duration_button1["command"] = lambda:m2.increase_s(rob)
+
+    duration_button2 = ttk.Button(duration_frame, text="Decrease Duration")
+    duration_button2.grid()
+    duration_button2["command"] = lambda:m2.decrease_s(rob)
+
+    duration_button3 = ttk.Button(duration_frame, text="Set Duration")
+    duration_button3.grid()
+    duration_button3["command"] = lambda: set_duration(rob, duration)
+
+
+def set_port(rob, port):
+    port_entry = BoxEntries.entry_for_port
+    contents_of_portentry_box = port_entry.get()
+    if rob.port == 'sim':
+        rob.port = str(contents_of_portentry_box)
+    else:
+        rob.port = int(contents_of_portentry_box)
+    print(rob.port)
+
+def change_speed(rob, amount):
+    rob.speed = rob.speed + amount
+
+def set_speed(rob, speed):
+    speed_entry = BoxEntries.entry_for_speed
+    contents_of_speedentry_box = speed_entry.get()
+    rob.speed = int(contents_of_speedentry_box)
+    print(rob.speed)
+
+def change_angle(rob, amount):
+    rob.angle = rob.angle + amount
+
+def set_angle(rob, angle):
+    angle_entry = BoxEntries.entry_for_angle
+    contents_of_angleentry_box = angle_entry.get()
+    rob.angle = int(contents_of_angleentry_box)
+    print(rob.angle)
+
+def set_duration(rob, duration):
+    duration_entry = BoxEntries.entry_for_duration
+    contents_of_durationentry_box = duration_entry.get()
+    rob.time_value = int(contents_of_durationentry_box)
+    print(rob.time_value)
+
+if __name__ == '__main__':
+    pass

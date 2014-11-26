@@ -1,0 +1,50 @@
+"""
+The  **** Stop! In the Name of Love! **** Python Capstone Project.
+
+CSSE 120 - Introduction to Software Development (Robotics).
+Fall term, 2013-2014.
+Team members: PUT-YOUR-NAMES_HERE (all of them).
+
+The primary author of this module is:
+   Steven Doolan
+Most of the code in this project by that author appears in this module
+OR in other modules whose name begins with
+    m1_... or c1_... for person 1,  m2_... or c2_... for person 2, etc.
+"""
+# TODO: Put the names of ALL team members in the above where indicated.
+#       Put YOUR NAME in the above where indicated.
+
+import c0  # @UnusedImport
+import m1  # @UnusedImport
+import m2  # @UnusedImport
+import m4  # @UnusedImport
+
+import tkinter
+from tkinter import ttk
+
+
+def main():
+    """
+    Tests functions in this module.
+    Intended to be used internally by the primary author of this module.
+    """
+    print('Testing functions in module m3:\n')
+    root = tkinter.Tk()
+    gui(root)
+
+
+    root.mainloop()
+
+def gui(root):
+    """ Adds widgets and sets up their callbacks. """
+    button_frame = ttk.Frame(root, padding=(70, 10))
+    button_frame.grid()
+    The_Button = ttk.Button(button_frame, text='Steven')
+    The_Button.grid()
+
+#-----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+#-----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,24 @@
+Use ONE line for each TASK (add lines as needed), per this TEMPLATE:
+  DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.  STATUS.  HOURS.
+  
+For STATUS, choose from NOT-STARTED, IN-PROGRESS, CANCELLED, DONE.
+For HOURS, use chunks of 0.5 to 2 hours -- end the line with the NUMBER.
+
+Your name: [Andrew Ma]
+
+10-24, 10-24. Learn basics of project.  FINISHED
+10-24, 10-24. Practice GUI work.  FINISHED
+DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.  STATUS.  HOURS.
+10/27, 10/27, Worked on m1 and fixed the buttons. Worked with anqi on her code at around 11, FINISHED. 1.5
+10/28, 10/28, Discussed sprint, worked on code to run together as a group for the duration of the class. 2
+10/29, 10/29, Worked in the CS lab with team, working on each of our seperate features. 2
+
+
+
+
+
+
+
+
+
+ 

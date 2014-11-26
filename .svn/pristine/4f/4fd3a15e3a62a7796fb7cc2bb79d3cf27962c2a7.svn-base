@@ -1,0 +1,22 @@
+Use ONE line for each TASK (add lines as needed), per this TEMPLATE:
+  DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.  STATUS.  HOURS.
+  
+For STATUS, choose from NOT-STARTED, IN-PROGRESS, CANCELLED, DONE.
+For HOURS, use chunks of 0.5 to 2 hours -- end the line with the NUMBER.
+
+Your name: [PUT-YOUR-NAME-HERE]
+
+10-24, 10-24. Learn basics of project.  FINISHED.
+10-24, 10-24. Practice GUI work.  FINISHED.
+DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.  STATUS.  HOURS.
+10/27,10/27, Worked on m2. Got help from Andrew.                                  FINISHED  1.5hours
+10/28,10/28, Finished coding m2 with the help of Professor Anderson and learned a lot. 
+             Helped to revise m0,m1,m3 and made them work~                        FINISHED  2hours
+10/29,10/29, Met in the CS lab with team and chose our parts of Sprint2           FINISHED  0.5hours
+10/31,10/31, Learned to create a PyDev Module and learned the defferent English 
+             meaning between'spin' & 'move in curve' from Steven                  FINISHED  5mins
+11/01,11/01, Start coding my part of sprint1 and finished it. 
+             Sprint1 file name: walk_under_input                                  FINISHED  3hours
+
+
+

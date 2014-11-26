@@ -1,0 +1,44 @@
+"""
+The  **** Stop! In the Name of Love! **** Python Capstone Project.
+
+CSSE 120 - Introduction to Software Development (Robotics).
+Fall term, 2013-2014.
+Team members: PUT-YOUR-NAMES_HERE (all of them).
+
+The primary author of this module is:  ENTIRE TEAM.
+
+This module contains a CLASS for bundling SHARED data.
+Your team can (and should) bundle things into classes sensibly.
+"""
+# TODO: Put the names of ALL team members in the above where indicated.
+
+import m1  # @UnusedImport
+import m2  # @UnusedImport
+import m3  # @UnusedImport
+import m4  # @UnusedImport
+
+
+def main():
+    """ Runs the MAIN PROGRAM. """
+    # Intended to be used when running the main (entire) program.
+    print('Integration Testing of the MAIN PROGRAM:\n')
+
+
+class CHOOSE_A_GOOD_NAME_FOR_THIS_CLASS():
+    """ BRIEFLY DESCRIBE THIS CLASS HERE. """
+
+    def __init__(self):
+        """ Initialize fields (instance variables). """
+        # TODO: ADD     self.FOO = BLAH     HERE AS NEEDED.
+        pass
+
+    def __repr__(self):
+        """ Returns a string that represents this object. """
+        return 'DISPLAY CLASS NAME AND APPROPRIATE FIELDS'
+
+#-----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+#-----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()

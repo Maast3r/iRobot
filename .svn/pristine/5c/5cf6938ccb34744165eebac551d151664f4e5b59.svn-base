@@ -1,0 +1,16 @@
+'''
+Created on Oct 28, 2013
+
+@author: doolansr
+'''
+def main():
+    gui()
+
+def gui(root,box_of_toys):
+    
+    root.bind_all('<Key-space>', lambda event: m3.Go_move(box_of_toys))
+    root.bind_all('<Key-enter.',lambda event: m3.gui.STOP_Please(box_of_toys)
+
+
+if __name__ == '__main__':
+    main

@@ -1,0 +1,62 @@
+Use ONE line for each TASK (add lines as needed), per this TEMPLATE:
+  DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.  STATUS.  HOURS.
+  
+For STATUS, choose from NOT-STARTED, IN-PROGRESS, CANCELLED, DONE.
+For HOURS, use chunks of 0.5 to 2 hours -- end the line with the NUMBER.
+
+Your name: [Andrew Ma]
+
+10-24, 10-24. Learn basics of project.  FINISHED
+10-24, 10-24. Practice GUI work.  FINISHED
+DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.  STATUS.  HOURS.
+
+SPRINT 1
+--------
+10/27, 10/27, Worked on m1 and fixed the buttons. Worked with Anqi on her code at around 11. DONE 1.5
+10/28, 10/28, Discussed sprint, worked on code to run together as a group for the duration of the class. DONE 2
+10/29, 10/29, Worked in the CS lab with team, working on each of our seperate features. DONE 3
+10/31, 10/31, Worked during class on the gui. Finished the gui. DONE 2
+
+SPRINT 2
+--------
+11/4, 11/4, Research PID, how it works and why it works. DONE 2
+11/5, 11/5, Implement the Proportional in PID. DONE 2
+11/5, 11/5, Implement Integral in PID. DONE 1
+11/5, 11/5, Implement Derivative in PID. DONE 1
+11/5, 11/5, Added another tkinter window, button, entry, and label for PID control. DONE 1
+Finish PID Control
+
+11/6, 11/7, Research on how to implement mp3 files into tkinter. DONE 5
+11/6, 11/7, Research on how to implement mp4 files into tkinter. DONE 3
+11/6, 11/7, Implement mp3 files. DONE 2
+11/7, 11/7, Implement mp4 files. CANCELLED (need gstreamer or pymedia library, both of which are only compatible with python 2.7) 2
+11/7, 11/7, Finally decided on pygame (tried pymedia, gstreamer, mp3play, and tksnack)  for mp3 files. Have to open a zellegraphics window to run mp3. DONE 3
+
+SPRINT 3
+--------
+11/9, 11/9, Create the gui for go until robot events task. DONE 2
+11/9, 11/9, Create functions for go until DONE 2
+11/9, 11/9, Go until ir IN-PROGRESS 1
+11/9, 11/10, Go until stuck DONE 2
+
+11/10, 11/12, Although PID works perfectly in the simulator, it does not run smoothly on real robots. Re-do all PID calculations. DONE 4
+11/12, 11/12, Tested all my functions with the team. DONE 2
+11/13, 11/13, Finalize everything with team for final sumbit. DONE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

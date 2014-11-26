@@ -1,0 +1,95 @@
+"""
+The  **** Stop! In the Name of Love! **** Python Capstone Project.
+
+CSSE 120 - Introduction to Software Development (Robotics).
+Fall term, 2013-2014.
+Team members: PUT-YOUR-NAMES_HERE (all of them).
+
+The primary author of this module is:
+   PUT-YOUR-NAME-HERE
+Most of the code in this project by that author appears in this module
+OR in other modules whose name begins with
+    m1_... or c1_... for person 1,  m2_... or c2_... for person 2, etc.
+"""
+# TODO: Put the names of ALL team members in the above where indicated.
+#       Put YOUR NAME in the above where indicated.
+
+import c0  # @UnusedImport
+import m2  # @UnusedImport
+import m3  # @UnusedImport
+import m4  # @UnusedImport
+
+import tkinter
+from tkinter import ttk
+import new_create
+import time
+
+
+def main():
+    """
+    Tests functions in this module.
+    Intended to be used internally by the primary author of this module.
+    """
+    print('Testing functions in module m1:\n')
+    root = tkinter.Tk()
+    root.title("Project")
+
+    gui(root)
+    m2.gui(root, connect('sim'))
+    m3.gui(root, connect('sim'))
+
+    root.mainloop()
+
+def gui(root):
+    """ Adds widgets and sets up their callbacks. """
+    port = 'sim'
+
+    main_frame = ttk.Frame(root, padding=100, relief='raised')
+    main_frame.grid()
+
+    con_button = ttk.Button(main_frame, text="Connect")
+    con_button.grid()
+    con_button['command'] = lambda: connect(port)
+
+    discon_button = ttk.Button(main_frame, text="Disconnect")
+    discon_button.grid()
+    discon_button['command'] = lambda: disconnect(connect(port))
+
+    three_button = ttk.Button(main_frame, text="Go 3 seconds")
+    three_button.grid()
+    three_button['command'] = lambda: simple_robot_example(connect(port))
+
+def connect(port):
+    print("connect")
+    c0.Box_of_Fun_Toys_for_Robots.robot = new_create.Create(port)
+    return c0.Box_of_Fun_Toys_for_Robots.robot
+
+
+def disconnect(robot):
+    print("disconnect")
+    # rob = new_create.Create('sim')
+    # rob.comPort = None
+    robot.comPort = None
+
+def simple_robot_example(robot):
+    # Just to remind you how to use a robot in the simulator.
+    # Start the simulator from C:\Program Files (x86)\iRobot ...
+    # Un-comment the following lines if you want them.  Need imports.
+#     r = new_create.Create('sim')
+#     r.go(50, 0)
+#     time.sleep(3)
+#     r.stop()
+#     r.shutdown()
+    robot.go(50, 0)
+    time.sleep(3)
+    robot.stop()
+    robot.shutdown()
+
+
+
+#-----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+#-----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()

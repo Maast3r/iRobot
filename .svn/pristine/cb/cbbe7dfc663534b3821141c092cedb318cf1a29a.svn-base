@@ -1,0 +1,129 @@
+'''
+Created on Nov 1, 2013
+
+@author: maas
+'''
+import c0
+import m1
+import m2
+import m3
+# import Xbox_And_KeyBoard
+
+import tkinter
+from tkinter import ttk
+import time
+import new_create
+
+class Distance():
+    # Using this class to help change variable values
+    def __init__(self, distance):
+        self.entry_for_distance = None
+        self.label_for_distance = None
+        self.t_distance = distance
+
+
+
+def main(rob):
+    # testrob = new_create.Create('sim')
+    # testrob.driveDirect(leftCmSec, rightCmSec)
+    # testrob.
+    # testrob.getSensor(sensorToRead)
+    # testrob.driveDirect(leftCmSec, rightCmSec)
+    # testrob.
+    # rob = c0.Box_of_Fun_Toys_for_Robots(20, 2, 'sim', 0)
+
+    root = tkinter.Tk()
+    root.title("Follow Black Line")
+
+    frame = ttk.Frame(root, padding=30)
+    frame.grid()
+    distance = Distance(0)
+    distance_entry = ttk.Entry(frame, width=8)
+    distance_entry.grid()
+    Distance.entry_for_distance = distance_entry
+
+    distance_label = ttk.Label(frame, text="Enter the distance (cm) of black line you would like the robot to follow.")
+    distance_label.grid()
+    Distance.label_for_distance = distance_label
+
+    distance_button = ttk.Button(frame, text="Set Distance")
+    distance_button.grid()
+    distance_button["command"] = lambda: set_distance(rob, distance)
+
+    start_button = ttk.Button(frame, text="Start")
+    start_button.grid()
+    start_button["command"] = lambda: pid(rob, Distance.t_distance)
+
+    root.mainloop()
+
+def pid(rob, t_distance):
+    # Max darkness is 4096
+    darkness = 2000
+
+    Kp = 10  # proportion
+    Ki = 100  # integrate
+    Kd = 10000  # derivative
+    offset = 90
+    Tp = 50
+    integral = 0
+    last_error = 0
+    derivative = 0
+    total_distance = 0
+    while True:
+        leftdarksensor = rob.robot.getSensor(new_create.Sensors.cliff_front_left_signal)
+        rightdarksensor = rob.robot.getSensor(new_create.Sensors.cliff_front_right_signal)
+        distancesensor = rob.robot.getSensor(new_create.Sensors.distance)
+        total_distance = distancesensor + total_distance
+        error = leftdarksensor - offset
+        error2 = rightdarksensor - offset
+        integral = integral + error
+        derivative = error - last_error
+        turnl = (Kp * error) + (Ki * integral) + (Kd * derivative)
+        turnl = turnl / 100
+        turnr = (Kp * error2) + (Ki * integral) + (Kd * derivative)
+        turnr = turnr / 100
+        speedl = Tp + turnl
+        speedr = Tp - turnr
+        last_error = error
+
+        if(rightdarksensor < darkness and leftdarksensor > darkness):
+            rob.robot.go(speedr, turnr)
+            time.sleep(0.001)
+            print('RIGHT')
+        elif(leftdarksensor < darkness and rightdarksensor > darkness):
+            rob.robot.go(speedl, turnl)
+            time.sleep(0.001)
+            print('lEFT')
+        elif(total_distance >= t_distance):  # total_distance >= t_distance
+            print(total_distance)
+            break
+        else:
+            rob.robot.go(20, 0)
+            time.sleep(0.001)
+            print('STRAIGHT')
+        rob.robot.stop()
+        # print(leftdarksensor, rightdarksensor)
+        '''
+        # Working P
+        if(rightdarksensor < darkness and leftdarksensor > darkness):
+            rob.robot.go(20, 50)
+            time.sleep(0.001)
+            print('RIGHT')
+        elif(leftdarksensor < darkness and rightdarksensor > darkness):
+            rob.robot.go(20, -50)
+            time.sleep(0.001)
+            print('lEFT')
+        else:
+            rob.robot.go(20, 0)
+            time.sleep(0.001)
+            print('STRAIGHT')
+        print(leftdarksensor, rightdarksensor)
+        '''
+def set_distance(rob, distance):
+    distance_entry = Distance.entry_for_distance
+    contents_of_distanceentry_box = distance_entry.get()
+    Distance.t_distance = int(contents_of_distanceentry_box)
+    print(Distance.t_distance)
+
+if __name__ == '__main__':
+    pass

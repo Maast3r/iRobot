@@ -1,0 +1,34 @@
+'''
+Created on Oct 28, 2013
+
+@author: doolansr
+'''
+import c0
+import m1
+import m2
+import m3
+# import Xbox_And_KeyBoard
+
+import tkinter
+from tkinter import ttk
+import time
+import new_create
+
+
+def main():
+    box = c0.Box_of_Fun_Toys_for_Robots(20, 2, 'sim')
+
+    root = tkinter.Tk()
+    root.title("Master")
+
+    m1.gui(root, box)
+    m2.gui(root, box)
+    m3.gui(root, box)
+    # Xbox_And_KeyBoard(root, box)
+
+    root.mainloop()
+
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,31 @@
+'''
+Created on Nov 7, 2013
+
+@author: maas
+'''
+import mp3play
+import time
+
+def main():
+    '''
+    play(): Start playing the clip. Returns immediately.
+    stop(): Stop playing the clip if it was playing.
+    pause(), unpause(): Pause (if playing) or unpause (if paused).
+    isplaying(): True if the clip is currently playing and not paused.
+    ispaused(): True if the clip is currently paused.
+    seconds(): The duration of the clip in seconds, rounded to the nearest second.
+    milliseconds(): The duration of the clip in milliseconds.
+    '''
+
+    filename = r'C:/Users/maas/Music/Imagine Dragons - Radioactive (dBerrie remix).mp3'
+    mp3 = mp3play.load(filename)
+
+    mp3.play()
+
+    # Let it play for up to 30 seconds, then stop it.
+    import time
+    time.sleep(min(30, mp3.seconds()))
+    mp3.stop()
+
+if __name__ == '__main__':
+    pass

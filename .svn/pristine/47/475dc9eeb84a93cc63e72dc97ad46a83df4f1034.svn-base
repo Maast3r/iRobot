@@ -1,0 +1,110 @@
+"""
+The  **** Stop! In the Name of Love! **** Python Capstone Project.
+
+CSSE 120 - Introduction to Software Development (Robotics).
+Fall term, 2013-2014.
+Team members: PUT-YOUR-NAMES_HERE (all of them).
+
+The primary author of this module is:
+   Steven Doolan
+Most of the code in this project by that author appears in this module
+OR in other modules whose name begins with
+    m1_... or c1_... for person 1,  m2_... or c2_... for person 2, etc.
+"""
+# TODO: Put the names of ALL team members in the above where indicated.
+#       Put YOUR NAME in the above where indicated.
+
+import c0  # @UnusedImport
+import m1  # @UnusedImport
+import m2  # @UnusedImport
+import m4  # @UnusedImport
+
+import tkinter
+from tkinter import ttk
+import time
+import new_create
+
+
+def main():
+    """
+    Tests functions in this module.
+    Intended to be used internally by the primary author of this module.
+    """
+    print('Testing functions in module m3:\n')
+    root = tkinter.Tk()
+    # robot = c0.Box_of_Fun_Toys_for_Robots(20, 3)
+    rob = c0.Box_of_Fun_Toys_for_Robots(10, 2, 'sim')
+
+    m1.gui(root, rob)
+    m2.gui(root, rob)
+
+
+
+    root.mainloop()
+    gui(root, rob)
+
+def gui(window, rob):
+    """ Adds widgets and sets up their callbacks. """
+
+
+
+    Go_frame = ttk.Frame(window, padding=(20, 10))
+    Go_frame.grid()
+    go_button = ttk.Button(Go_frame, text='Go')
+    go_button.grid()
+    Slow_frame = ttk.Frame(window, padding=(20, 10))
+    Slow_frame.grid()
+    Slow_button = ttk.Button(Slow_frame, text='Slow')
+    Slow_button.grid()
+    Stop_frame = ttk.Frame(window, padding=(20, 10))
+    Stop_frame.grid()
+    Stop_button = ttk.Button(Stop_frame, text='Stop')
+    Stop_button.grid()
+
+    go_button['command'] = lambda: go_move(rob)
+    Stop_button['command'] = lambda:stop_please(rob)
+    Slow_button['command'] = lambda: Slow_move(rob)
+
+def Slow_move(rob):
+    # r.stop()
+    rob.speed = rob.speed - 10
+    # for _ in range(20):
+    rob.robot.go(rob.speed, 0)
+    time.sleep(rob.time_value)
+    rob.robot.stop()
+
+def go_move(rob):
+#     rob.speed = rob.speed + 10
+#     # for _ in range(20):
+#     rob.robot.go(rob.speed, 0)
+#     time.sleep(rob.time_value)
+#     rob.robot.stop()
+#     while True:
+    for _ in range(5):
+
+        rob.robot.go(rob.get_speed(), rob.get_angle())
+
+        time.sleep(.03)
+
+
+def move(rob):
+    for _ in range(30):
+
+        rob.robot.go(rob.get_speed(), rob.get_angle())
+        time.sleep(.03)
+
+def stop_please(rob):
+    rob.robot.stop()
+def move_backwards(rob):
+    for _ in range(5):
+            n = (rob.get_speed()) * (-1)
+            rob.robot.go(n, rob.get_angle())
+            time.sleep(.03)
+#-----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+#-----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()
+
+

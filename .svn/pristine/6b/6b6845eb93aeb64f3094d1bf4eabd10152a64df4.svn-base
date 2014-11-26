@@ -1,0 +1,78 @@
+Use ONE line for each TASK (add lines as needed), per this TEMPLATE:
+  DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.  STATUS.  HOURS.
+  
+For STATUS, choose from NOT-STARTED, IN-PROGRESS, CANCELLED, DONE.
+For HOURS, use chunks of 0.5 to 2 hours -- end the line with the NUMBER.
+
+Your name: [Steven Doolan]
+
+10-24, 10-24. Learn basics of project.  Done.
+10-24, 10-24. Practice GUI work.  Done.
+DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.  STATUS.  HOURS.
+10-27		worked on m3 and trouble shooted 	Done	4.5
+10-28		built c0, box_of_fun_toys class		Done	2.5
+10-29		created the Master file and worked
+			 with Andrew to make it work		Done	1.5
+11-1		xbox remote
+			wilma can be teleoperated (adv)		Done	5.5
+--------------------------------------------------------------------Sprint 2
+11-4,  XXX	IR chat
+11-4,  11-4	figure out morse code dicts			Done	1
+11-4,  11-7	construct two dictionares			Done	3.5
+11-4,  11-4	-with leters -2.5
+11-6,  11-7	-with spaces -spaces-30
+11-6,  11-7	-with numbers numbers-30
+11-7,  11-7	write code to translate to morse
+			code 								Done	1
+11-7,  11-7	write code to translate out of morse
+			--code-comleted with above task		Done	--
+
+--------------------------------------------------------------------Sprint3			
+Ir following/movement
+Ir communication finish
+11-8--11/10		send signals via ir						Done	5	
+				-create additional dictionaries
+				-establish handing down of dictionaries
+					-replaced with dictionarys(n)
+				-create plan to pause transmission
+				 account for dash & dots in a row			
+11/10--11/10	test code and check the send			Done	1
+11/10--11/10	develop gui interface for it			Done	1
+				recive signals via it
+11/8--XXX		code the get and the translate			Done	2
+				-test it
+				-display zone
+11-12--11-12	-basis code for handshake				Done	.25
+				-error on 11/10, can't print where
+				I want as blocked by sending byte...
+				zg morse code window					abandoned
+	not started	sings the morse code corspong to 		abandoned
+			frequency
+11-12		basis 
+11-12		re-mapped controller with new program so
+			so I could use joy-sticks and triggers
+			-research/installed 3 programs 
+			-update mapping pic in the process folder	Done	2
+			-update code for buttons					incomplete				
+			-move forward and backwards					Done		3
+			--elipse problems
+			--rewrite movement code (others didn't work)
+			
+-------------------------------------------------------------
+Fixes
+11-13		fix the go function/does not update		inprogress	.5
+			-still doesn't update, but lasts longer
+			-ideas:
+			will need its own process to be updated
+
+
+
+LOG
+Sprint ending 11-1 5.5-hours of dedicated work
+I have completed task 3b.
+I used joy-to-key to program a wired after-glow x-box 360 remote so that the keys would act
+like a key press. These buttons work in al programs.
+
+In addition, I made Xbox_And_KeyBoard.py which allows the controler of the robot to use 
+key board keys and by extension the remote.   
+

@@ -1,0 +1,133 @@
+Use ONE line for each TASK (add lines as needed), per this TEMPLATE:
+  DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.  STATUS.  HOURS.
+  
+For STATUS, choose from NOT-STARTED, IN-PROGRESS, CANCELLED, DONE.
+For HOURS, use chunks of 0.5 to 2 hours -- end the line with the NUMBER.
+
+Your name: [Anqi Zheng] (m2)
+
+10-24, 10-24. Learn basics of project.                  DONE.    0.5 Hours
+10-24, 10-24. Practice GUI work.                        DONE.    0.5 Hours
+
+DATE-STARTED, DATE-DUE/ENDED.  DESCRIBE-TASK.         STATUS.  HOURS.
+
+10-27, 10-27 Worked on m2. Got help from Andrew.        DONE.    1.5 Hours
+10-28, 10-27 Reviewed constructing a class              DONE.    2.0 Hours
+             Reviewed inheritance
+             Finished coding m2 
+             Helped to revise teammates'm0,m1,m3 and made them work~                                 
+
+-----------------------------------------------------------------------------------------------------------------------------------------                               
+Sprint 1: WILMA can move autonomously,by going a specified amount in a specified direction at a specified speed.
+		  File Name: Sprint1_m2_walk_under_input.py  
+
+10-29,10-29, Met in CSlab with team and                 DONE.    1.5 Hours
+			 chose our parts of Sprint2                 
+
+10-31,10-31, 1)Learned to create a PyDev Module         DONE.    5 Minutes
+     		    Learned the defferent English meaning
+                between'spin' and 'move in curve from Steven 
+             2)Creat four entryboxes: port,speed,time
+                and degree.Connected them to lili from c0
+                Design boxes' layout.
+             3)Creat 7 flexible buttoms and make users
+                easily choose mode to run.(user just have
+                to punch all data into entyboxes without 
+                considering which data should go with which mode.
+                Because my lili will take whatever numbers she need.)
+
+11-01,11-01, 4)Compile and refine my ideals,             DONE.    3.0 Hours
+			    code them and debug little mistakes.
+                         
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Sprint 2: WILMA can move to user-specified waypoints.
+	      File Name: Sprint2_m2_waypoints.py
+	      
+10-31,10-3  1)Start Sprint 2 with team.                 DONE.    2.0 Hours           
+11-4,11-4,  2)creat Sprint_m2_move_waypoints.py    
+                               
+11-5,11-5,  3)Considered using a list to collect (x,y)  DONE.    1.0 Hours 
+            4)Decided to apply map to get(x,y)
+            5)Think of the algorithm for robot get to
+              destination (x,y)
+               Apply a loop to go through point list and 
+               an if-elif-else statement to compare each 
+               position with previous position by considering 4 quadrants.
+            6)Save the position for constructing the next 
+               mouse-click run
+
+11-6,11-6,  7)Compile and refine the ideal into my      DONE.    4.0 Hours
+               code and debuging little mistakes.  
+               Finishe Sprint 2 with pretty layout.       
+             
+11-11,11-11 8)Make change on Sprint2:                   DONE     3.5  Hours
+               My previous math arithmetic allow robot go to 
+               any point in the map when user clicked. 
+               Now,I added a 'Go Those Points' buttum in Sprint2 
+               and changed list of # into list of points which collect 
+               every mouseclick's position.
+               Thus,robot remember every points and go each of them when 
+               user click 'Go Those Points' buttom.           
+--------------------------------------------------------------------------------------------------------------------------------------------
+Sprint 3: WILMA sings and dances with a light show. 
+          File Name: Sprint_m2_sing_dance.py
+          
+ 11-7,11-7  1)Creat Sprint 3 File                       DONE.    1 Minute
+            2)Think of the ideals for sing & dance      DONE.    0.5  Hour  
+		    3)Search for useful funtions in             DONE.    0.5  Hour
+			  creat library(Light & Music)
+			  1.setLEDs(self, powerColor, powerIntensity, play, advance)
+			  2.playSong(self, noteList)
+			  3.setSong(self, songNumber, noteList)
+11-8,11-8   4)Advanced connect funtion
+			 (Apply if-else. Thus, if we do not input port #,
+			 robot directly connect to the simulator with 
+			 pressing the connect buttom.
+			 If user input port #,code connect to real robot)
+			5)Created all the entryboxes, labels and buttoms     
+			which is needed for Sprint3,and design their layout
+                    
+11-11,11-11 6)lookup 'note code for Create robots'file DONE.    1.5 Hours
+            7)lookup opern of 'little little star'&'MarryChristmas'
+              and compile them into pypthon note lists.
+            8)Design the change of movement and light
+             according to the music
+            
+            9)Compile and refine the ideals into my    DONE.    2.0 Hours
+             code and debuging little mistakes.  
+             Finishe Sprint 3.
+            
+11-12,11-12 10)Learned 'root.update' of Tk (S-23)      DONE.    0.5 Hours
+                apply them into my 'Sing and Dance'
+            11)Create a 'Be silent' Buttom             DONE     2.0 Hours
+                for Sing and dance with the knowlege
+                of 'root.update' and while loop.
+              
+11-13,11-13 12)Made changes on sing and dance part     DONE     1.0 Hour
+                create two songs one time ideal and 
+                implement them. 
+                Thus,robot can automatically change
+                light and movement with the same time changing songs.            
+			13)Devide songs into small pieces allowing DONE     5 Minute
+			    lights' change with song more obvious.
+----------------------------------------------------------------------------------------------------------------------------------------------
+Integration and Improvement
+
+11-12,11-12 1)Met with team in robot lab.			 DONE.	   2.0 Hours
+              Integrate all of the seperate part into'Master'
+              Dealing with all the non compatible problems
+            2)Helped to change the layout of Main_GUI          10 Minutes
+              and Made it neat and pretty.
+            3)Met with Andrew and made sure each     DONE.     10 Minutes
+              other's code is working.           
+11-13,11-13	4)Met with teamates for the last time,   Not-start   
+		      and end our project!
+	
+
+
+
+
+
+
+

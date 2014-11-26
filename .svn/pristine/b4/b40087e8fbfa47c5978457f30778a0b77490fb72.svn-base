@@ -1,0 +1,153 @@
+'''
+Created on Nov 4, 2013
+
+@author: zhenga
+'''
+
+
+
+import c0
+import tkinter
+from tkinter import ttk
+import time
+import math
+import Sprint1_m2_walk_under_input
+
+
+class Pen_Data():
+    def __init__(self):
+        self.mouse_position_x = None
+        self.mouse_position_y = None
+
+
+
+def main():
+
+    pen_data = Pen_Data()
+
+    root = tkinter.Tk()
+
+    lili = c0.Box_of_Fun_Toys_for_Robots(None, None, None, None)
+
+
+    A = [0, 0]
+    B = [0, 0]
+
+    Sprint1_m2_walk_under_input.gui(root, lili)
+    gui(root, lili, pen_data, A, B)
+    root.mainloop()
+
+def gui(root, lili, pen_data, A, B):
+
+    main_frame = ttk.Frame(root, padding=5, relief='raised')
+    main_frame.grid()
+
+    instructions = 'Sprint2 Click the mouse button to get position,\n'
+    instructions = instructions + 'for the robot to go'
+    label = ttk.Label(main_frame, text=instructions)
+    label.grid()
+
+    canvas = tkinter.Canvas(main_frame, background='pink', width=400, height=400)
+    canvas.grid()
+
+    canvas.bind('<Button-1>', lambda event: left_mouse_click(event, lili, A, B))
+
+    button = ttk.Button(main_frame, text='Flip pen color')
+    button.grid()
+
+
+def left_mouse_click(event, lili, A, B):
+    canvas = event.widget
+    canvas.create_oval(event.x - 5, event.y - 5,
+                        event.x + 5, event.y + 5,
+                      fill='yellow', width=0)
+
+    if event.x > B[0] and event.y > B[1]:  # Quardratic 4
+        print(B)
+        A[0] = event.x - B[0]
+        A[1] = event.y - B[1]
+
+        lili.robot.go(0, (-math.atan(A[1] / A[0]) * 180 / math.pi) / 3)
+        time.sleep(3)
+        lili.robot.go(math.sqrt(A[0] * A[0] + A[1] * A[1]) / 3, 0)
+        time.sleep(3)
+        lili.robot.go(0, (math.atan(A[1] / A[0]) * 180 / math.pi) / 3)
+        time.sleep(3)
+        lili.robot.stop()
+
+        B[0] = event.x
+        B[1] = event.y
+
+
+        print(B, '4')
+
+    elif event.x > B[0] and event.y < B[1]:  # Quardratic 1
+        print(B)
+        A[0] = event.x - B[0]
+        A[1] = B[1] - event.y
+
+        lili.robot.go(0, (math.atan(A[1] / A[0]) * 180 / math.pi) / 3)
+        time.sleep(3)
+        lili.robot.go(math.sqrt(A[0] * A[0] + A[1] * A[1]) / 3, 0)
+        time.sleep(3)
+        lili.robot.go(0, (-math.atan(A[1] / A[0]) * 180 / math.pi) / 3)
+        time.sleep(3)
+        lili.robot.stop()
+
+        B[0] = event.x
+        B[1] = event.y
+
+        print(B, '1')
+
+    elif event.x < B[0] and event.y > B[1]:  # Quardratic 3
+        print(B)
+        A[0] = B[0] - event.x
+        A[1] = event.y - B[1]
+
+        lili.robot.go(0, -(math.atan(A[0] / A[1]) * 180 / math.pi + 90) / 3)
+        time.sleep(3)
+        lili.robot.go(math.sqrt(A[0] * A[0] + A[1] * A[1]) / 3, 0)
+        time.sleep(3)
+        lili.robot.go(0, (math.atan(A[0] / A[1]) * 180 / math.pi + 90) / 3)
+        time.sleep(3)
+        lili.robot.stop()
+
+        B[0] = event.x
+        B[1] = event.y
+
+        print(B, '3')
+
+    elif event.x < B[0] and event.y < B[1]:  # Quardratic 2
+        print(B)
+        A[0] = B[0] - event.x
+        A[1] = B[1] - event.y
+
+        lili.robot.go(0, (math.atan(A[0] / A[1]) * 180 / math.pi + 90) / 3)
+        time.sleep(3)
+        lili.robot.go(math.sqrt(A[0] * A[0] + A[1] * A[1]) / 3, 0)
+        time.sleep(3)
+        lili.robot.go(0, -(math.atan(A[0] / A[1]) * 180 / math.pi + 90) / 3)
+        time.sleep(3)
+        lili.robot.stop()
+
+        B[0] = event.x
+        B[1] = event.y
+
+        print(B, '2')
+
+
+
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+#------------------------------------------------------------------------
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,110 @@
+'''
+Created on Nov 6, 2013
+
+@author: zhenga
+'''
+import c0
+import tkinter
+from tkinter import ttk
+import time
+import Sprint1_m2_walk_under_input
+import Sprint2_m2_waypoints
+import zellegraphics as zg
+import new_create
+import Main_GUI
+import m1
+
+class Position_Data():
+    def __init__(self):
+        self.mouse_position_x = None
+        self.mouse_position_y = None
+
+def main():
+
+    root = tkinter.Tk()
+    root.title("Controler Window")
+
+    lili = c0.Box_of_Fun_Toys_for_Robots(None, None, None, None)
+#     Main_GUI.gui(root, lili)
+    m1.gui(root, lili)
+    distance_to = [0, 0]
+    B = [zg.Point(0, 0)]
+    position_data = Position_Data()
+    Sprint2_m2_waypoints.gui(root, lili, position_data, distance_to, B)
+
+    Sprint1_m2_walk_under_input.gui(root, lili)
+
+    gui(root, lili)
+
+    root.mainloop()
+
+def gui(root, lili):
+
+
+    main_frame = ttk.Frame(root, padding=(70, 5), relief='raised')
+    main_frame.grid()
+
+    instructions = 'Sprint3 Click to play the backgroud music'
+    label = ttk.Label(main_frame, text=instructions)
+    label.grid()
+
+
+    button_song1 = ttk.Button(main_frame, text='Dance with song')
+    button_song1.grid()
+    button_song1['command'] = lambda: sing_dance(lili)
+
+#     button_stop_song = ttk.Button(main_frame, text='Be silient!')
+#     button_stop_song.grid()
+#     button_song1['command'] = lambda: be_silent(lili)
+
+def sing_dance(lili):
+    song_1 = [(96, 30), (96, 30), (103, 20), (103, 20), (105, 30), (105, 20), (103, 30)]  # a quick C chord
+    lili.robot.playSong(song_1)
+    lili.robot.setLEDs(25, 70, 1, 0)
+    lili.robot.go(30, 60)
+    time.sleep(3)
+
+
+    song_1_2 = [(101, 30), (101, 30), (100, 20), (100, 20), (98, 30), (98, 20), (96, 30)]  # a quick C chord
+    lili.robot.playSong(song_1_2)
+    lili.robot.setLEDs(50, 70, 0, 1)
+    time.sleep(3)
+
+    song_2 = [(105, 30), (105, 30), (103, 20), (103, 20), (100, 30), (100, 20), (98, 30)]
+    lili.robot.playSong(song_2)
+    lili.robot.setLEDs(100, 80, 1, 0)
+    lili.robot.go(30, -60)
+    time.sleep(3)
+
+
+    song_2_2 = [(105, 20), (105, 20), (103, 20), (103, 20), (100, 20), (100, 20), (98, 30)]
+    lili.robot.playSong(song_2_2)
+    lili.robot.setLEDs(150, 100, 0, 1)
+    time.sleep(3)
+
+    song_3 = [(108, 20), (108, 20), (115, 20), (115, 20), (117, 20), (117, 20), (115, 30)]
+    lili.robot.playSong(song_3)
+    lili.robot.setLEDs(200, 220, 1, 0)
+    lili.robot.go(30, -60)
+    time.sleep(3)
+
+
+    song_3_2 = [(96, 30), (96, 30), (103, 20), (103, 20), (105, 30), (105, 20), (103, 30)]
+    lili.robot.playSong(song_3_2)
+    lili.robot.setLEDs(220, 150, 1, 1)
+    time.sleep(3)
+
+
+    lili.robot.stop()
+
+
+# def be_silent(lili):
+#     pass
+
+
+#------------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+#------------------------------------------------------------------------
+if __name__ == '__main__':
+    main()
